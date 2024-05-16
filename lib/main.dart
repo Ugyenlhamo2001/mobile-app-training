@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todo/screens/Discovery.dart';
 import 'package:todo/screens/Gofit.dart';
 import 'package:todo/screens/PlantLanding.dart';
+import 'package:todo/screens/Travel.dart';
+import 'package:todo/screens/Travel/Intro.travel.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: Home() ,
-      home: Discovery(),
+      home: IntroTravel(),
     );
   }
 }
