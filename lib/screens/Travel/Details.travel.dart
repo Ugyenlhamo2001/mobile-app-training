@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:todo/screens/Model/Place.model.dart';
 
 class DetailsTravel extends StatelessWidget {
+  PlaceCardModel place;
+
+  DetailsTravel({required this.place});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

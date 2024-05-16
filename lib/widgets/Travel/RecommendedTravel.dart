@@ -1,41 +1,54 @@
 import 'package:flutter/material.dart';
-
+import 'package:todo/screens/Model/Place.model.dart';
 import 'MediumTravelCard.dart';
 
 class RecommendedTravel extends StatelessWidget {
-  const RecommendedTravel({super.key});
+  List<String> places = ["China", "India", "Indonesia", "Bhutan"];
+  List<PlaceCardModel> placesList = [
+    PlaceCardModel(
+        img:
+            "https://cdn.pixabay.com/photo/2023/01/25/22/46/grey-reef-shark-7744765_640.jpg",
+        description: "description 1",
+        title: "title 1 recommended"),
+    PlaceCardModel(
+        img:
+            "https://cdn.pixabay.com/photo/2022/12/02/21/20/blue-7631674_640.jpg",
+        description: "description 2",
+        title: "title 2 recommended"),
+    PlaceCardModel(
+        img:
+            "https://cdn.pixabay.com/photo/2022/11/07/21/31/rose-7577265_640.jpg",
+        description: "description 1",
+        title: "title 3 recommended"),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 16),
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        margin: const EdgeInsets.only(top: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Recommended Places',
                   style: TextStyle(fontSize: 24),
                 ),
-                Text(
-                  'See all',
-                  style: TextStyle(
-                    color: Colors.blue, // Set the color to blue
-                  ),
-                ),
+                Text('View more'),
               ],
             ),
             Container(
-              margin: EdgeInsets.only(top: 8),
+              margin: const EdgeInsets.only(top: 8),
               child: Column(
-                children: [
-                  MediumTravelCard(title: 'pemako'),
-                  MediumTravelCard(title: 'pemako'),
-                  MediumTravelCard(title: 'pemako'),
-                  MediumTravelCard(title: 'pemako'),
-                ],
+                children: placesList.map((PlaceCardModel el) {
+                  return MediumTravelCard(
+                    title: el.title,
+                    description: el.description,
+                    url: el.img,
+                  );
+                }).toList(),
               ),
             )
           ],

@@ -20,6 +20,7 @@ class PopularTravel extends StatelessWidget {
         description: "description 1",
         title: "title 3"),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,6 +45,9 @@ class PopularTravel extends StatelessWidget {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
+                // map transforms the variable based on PlaceCardModel from line 7 to an
+                // array of widgets in form of PopularCardTravel(...) which is then rendered
+                // into the mobile screens
                 children: placesList.map((PlaceCardModel el) {
                   return PopularCardTravel(place: el);
                 }).toList(),

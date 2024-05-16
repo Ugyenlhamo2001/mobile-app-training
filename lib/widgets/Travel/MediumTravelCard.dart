@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo/screens/Model/Place.model.dart';
 import 'package:todo/screens/Travel/Details.travel.dart';
 
 class MediumTravelCard extends StatelessWidget {
@@ -9,10 +9,9 @@ class MediumTravelCard extends StatelessWidget {
 
   MediumTravelCard({
     required this.title,
-    this.description =
-        "Pemako one of the rated Resturant in Thimphu, more like Hotel Taj.",
+    this.description = "Basic description",
     this.url =
-        "https://i.travelapi.com/lodging/2000000/1890000/1881000/1880991/bb948e78_z.jpg",
+        "https://cdn.pixabay.com/photo/2023/01/13/14/58/snake-7716269_1280.jpg",
   });
 
   @override
@@ -21,7 +20,19 @@ class MediumTravelCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DetailsTravel()),
+          // since the value received is not based on PlaceCardModel,
+          // the format that detail
+          // travel receives the variable in,
+          // and is received in fragments, we must convert the individual data
+          // into DetailsTravel receiving format i.e, based on PlaceCardModel before
+          // passing into DetailsTravel
+          MaterialPageRoute(
+              builder: (context) => DetailsTravel(
+                      place: PlaceCardModel(
+                    title: title,
+                    img: url,
+                    description: description,
+                  ))),
         );
       },
       child: Container(

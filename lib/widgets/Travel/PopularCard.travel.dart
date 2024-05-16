@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo/screens/Model/Place.model.dart';
 import 'package:todo/screens/Model/Place.model.dart';
 import 'package:todo/screens/Travel/Details.travel.dart';
 
@@ -15,7 +13,14 @@ class PopularCardTravel extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DetailsTravel()),
+          // the place variable is received from the popular places component is being
+          // passed down to details travel while navigating in the line below
+          // since the value received is based on PlaceCardModel, the format that detail
+          // travel receives the variable in, we can directly pass it into the route
+          MaterialPageRoute(
+              builder: (context) => DetailsTravel(
+                    place: place,
+                  )),
         );
       },
       child: Container(
